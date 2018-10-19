@@ -14,7 +14,7 @@ deploy:
  app: "dockersetup"
  env: "Dockersetup-env"
  bucket_name: "elasticbeanstalk-us-east-1-360459250934"
- bucket_path: "docker"
+ bucket_path: "dockersetup"
  on:
   branch: masetr
 
