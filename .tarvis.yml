@@ -8,7 +8,6 @@ before_install:
 script:
  - docker run khanahmad1314/dockersetup npm run test -- --coverage
 
-#Deployment configuration
 deploy:
  provider: elasticbeanstalk
  region: "us-east-1"
@@ -19,7 +18,6 @@ deploy:
  on:
   branch: masetr
 
-#API setup
  access_key_id: $AWS_ACCESS_KEY
  secret_access_key:
   secure: "$AWS_SECRET_KEY"
