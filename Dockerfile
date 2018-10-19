@@ -1,0 +1,15 @@
+# Build Phase
+FROM node:alpine as builder
+#Use work directory
+WORKDIR /app
+#Download and install a dependency
+COPY package.json .
+RUN npm install
+COPY . .
+#Tell the image what to do when it starts as a container
+#CMD ["npm" , "start" , "run"]
+RUN npm run build
+
+# RUN Phase
+FROM nginx
+COPY --from=builder /app/build /usr/share/nginx/html
