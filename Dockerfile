@@ -3,13 +3,14 @@ FROM node:alpine as builder
 #Use work directory
 WORKDIR /app
 #Download and install a dependency
-COPY package.json .
+COPY package*.json ./
 RUN npm install
-COPY . .
+COPY . ./
 #Tell the image what to do when it starts as a container
 #CMD ["npm" , "start" , "run"]
 RUN npm run build
 
 # RUN Phase
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
